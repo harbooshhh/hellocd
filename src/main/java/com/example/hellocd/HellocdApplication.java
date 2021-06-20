@@ -15,7 +15,7 @@ public class HellocdApplication {
 
 	@RequestMapping("/")
 	String home() {
-		return "Hello World!";
+		return "hello world .... i am hussain...!";
 	}
 
 	public static void main(String[] args) {
