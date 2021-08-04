@@ -1,0 +1,139 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /person:
+    get:
+      operationId: person.read_all
+      tags:
+        - Person
+      summary: Read the entire set of people, sorted by last name
+      description: Read the entire set of people, sorted by ThinkID
+      responses:
+        200:
+          description: Successfully read persons set operation
+          schema:
+            type: array
+            items:
+              properties:
+                ThinkId:
+                  type: string
+                  description: Id of the Think
+                Name:
+                  type: string
+                  description: the Name of the person
+                Gender:
+                  type: string
+                  description: Gender of the person
+                Nationality:
+                  type: string
+                  description: Nationality of the person
+                ContactId:
+                  type: string
+                  description: contact number for person
+                Address:
+                  type: string
+                  description: address detail for the person
+                EMPTY:
+                  type: string
+                  description: EMPTY
+    post:
+      operationId: person.create
+      tags:
+        - People
+      summary: Create a person
+      description: Create a new person
+      parameters:
+        - name: person
+          in: body
+          description: Person to create
+          required: True
+          schema:
+            type: object
+            properties:
+              fname:
+                type: string
+                description: First name of person to create
+              lname:
+                type: string
+                description: Last name of person to create
+      responses:
+        201:
+          description: Successfully created person
+          schema:
+            properties:
+              person_id:
+                type: string
+                description: Id of the person
+              fname:
+                type: string
+                description: First name of the person
+              lname:
+                type: string
+                description: Last name of the person
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the person record
+              
+
+  /people/{ThinkId}:
+    get:
+      operationId: person.read_one
+      tags:
+        - Person
+      summary: Read the entire set of people, sorted by last name
+      description: Read the entire set of people, sorted by ThinkID
+      parameters:
+        - name: ThinkId
+          description: Thing id pararmeter used to fetch user data
+          type: string
+          in: path
+          required: true
+      responses:
+        200:
+          description: Successfully read persons set operation
+          schema:
+            type: array
+            items:
+              properties:
+                ThinkId:
+                  type: string
+                  description: Id of the Think
+                Name:
+                  type: string
+                  description: the Name of the person
+                Gender:
+                  type: string
+                  description: Gender of the person
+                Nationality:
+                  type: string
+                  description: Nationality of the person
+                ContactId:
+                  type: string
+                  description: contact number for person
+                Address:
+                  type: string
+                  description: address detail for the person
+                EMPTY:
+                  type: string
+                  description: EMPTY
+                  
+  
+                  
+                  
+                  
+                  
+        
+                  
+                  
+              
+

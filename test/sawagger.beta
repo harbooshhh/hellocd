@@ -1,0 +1,98 @@
+
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /person:
+    get:
+      operationId: person.read_all
+      tags:
+        - person
+      summary: Read the entire set of people, sorted by last name
+      description: Read the entire set of people, sorted by ThinkID
+      responses:
+        200:
+          description: Successfully read persons set operation
+          schema:
+            type: array
+            items:
+              properties:
+                ThinkId:
+                  type: string
+                  description: Id of the Think
+                Name:
+                  type: string
+                  description: the Name of the person
+                Gender:
+                  type: string
+                  description: Gender of the person
+                Nationality:
+                  type: string
+                  description: Nationality of the person
+                ContactId:
+                  type: string
+                  description: contact number for person
+                Address:
+                  type: string
+                  description: address detail for the person
+                EMPTY:
+                  type: string
+                  description: EMPTY
+              
+          
+  /person/{ThingId}:
+    get:
+      operationd:person.ple.read_one
+      tags:
+        - People
+      summary: Read one person
+      description: Read one person
+      parameters:
+        - name:ThinkId
+          in: path
+          description: Id of the person to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read person from people data operation
+          schema:
+            type: object
+            properties:
+                  ThinkId:
+                  type: string
+                  description: Id of the Think
+                Name:
+                  type: string
+                  description: the Name of the person
+                Gender:
+                  type: string
+                  description: Gender of the person
+                Nationality:
+                  type: string
+                  description: Nationality of the person
+                ContactId:
+                  type: string
+                  description: contact number for person
+                Address:
+                  type: string
+                  description: address detail for the person
+                EMPTY:
+                  type: string
+                  description: EMPTY
+          
+              
+              
+              
+              
+              
+              
